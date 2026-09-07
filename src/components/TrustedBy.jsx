@@ -2,19 +2,22 @@ import { company_logos } from "../assets/assets";
 
 const TrustedBy = () => {
   return (
-    <div className="flex flex-col items-center px-4 sm:px-12 lg:px-24 xl:px-40 gap-10 text-gray-700 dark:text-white/80">
-      <h3 className="font-semibold">Trusted by Leading Companies</h3>
-      <div className="flex items-center justify-center flex-wrap gap-10 m-4">
-        {company_logos.map((logo, index) => (
-          <img
-            key={index}
-            src={logo}
-            alt={index}
-            className="max-h-5 sm:max-h-6 dark:drop-shadow-xl"
-          />
+    <section className="flex flex-col items-center gap-10 px-4 text-gray-700 dark:text-white/80 sm:px-12 lg:px-24 xl:px-40">
+      <h2 className="font-semibold">Trusted by Leading Companies</h2>
+
+      <ul className="m-4 flex flex-wrap items-center justify-center gap-10">
+        {company_logos.map((logo) => (
+          <li key={logo}>
+            <img
+              src={logo}
+              alt=""
+              aria-hidden="true"
+              className="max-h-5 dark:drop-shadow-xl sm:max-h-6"
+            />
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 };
 
