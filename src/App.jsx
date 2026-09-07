@@ -1,9 +1,9 @@
 import { useState } from "react";
-import ContactUs from "./components/ContactUs";
+import ContactUs from "./components/contact/ContactUs";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import OurWork from "./components/OurWork";
-import Services from "./components/Services";
+import Services from "./components/services/Services";
 import Teams from "./components/Teams";
 import TrustedBy from "./components/TrustedBy";
 

@@ -1,7 +1,7 @@
-import { assets } from "../assets/assets";
-import { servicesData } from "../data/services";
+import { assets } from "../../assets/assets";
+import { servicesData } from "../../data/services";
+import Title from "../Title";
 import ServiceCard from "./ServiceCard";
-import Title from "./Title";
 
 const Services = () => {
   return (
@@ -23,7 +23,7 @@ const Services = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2">
         {servicesData.map((service) => (
-          <ServiceCard key={service.title} service={service} />
+          <ServiceCard key={service.id} service={service} />
         ))}
       </div>
     </section>
