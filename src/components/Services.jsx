@@ -1,35 +1,9 @@
 import { assets } from "../assets/assets";
+import { servicesData } from "../data/services";
 import ServiceCard from "./ServiceCard";
 import Title from "./Title";
 
 const Services = () => {
-  const servicesData = [
-    {
-      title: "Advertising",
-      description:
-        "We turn bold ideas into powerful digital solutions that connect, engage...",
-      icon: assets.ads_icon,
-    },
-    {
-      title: "Content marketing",
-      description:
-        "We turn bold ideas into powerful digital solutions that connect, engage and...",
-      icon: assets.marketing_icon,
-    },
-    {
-      title: "Content writing",
-      description:
-        "We turn bold ideas into powerful digital solutions that connect...",
-      icon: assets.content_icon,
-    },
-    {
-      title: "Social media",
-      description:
-        "We turn bold ideas into powerful digital solutions that connect, engage...",
-      icon: assets.social_icon,
-    },
-  ];
-
   return (
     <section
       id="services"

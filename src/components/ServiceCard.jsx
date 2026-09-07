@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef, useState } from "react";
 
 const ServiceCard = ({ service }) => {
@@ -36,9 +37,8 @@ const ServiceCard = ({ service }) => {
 
       <div className="relative z-10 flex items-center gap-10 rounded-[10px] bg-white p-8 transition-all hover:m-0.5 hover:p-7.5 dark:bg-gray-900">
         <figure className="rounded-full bg-gray-100 dark:bg-gray-700">
-          <img
-            src={service.icon}
-            alt=""
+          <FontAwesomeIcon
+            icon={service.icon}
             aria-hidden="true"
             className="m-2 max-w-24 rounded-full bg-white dark:bg-gray-900"
           />

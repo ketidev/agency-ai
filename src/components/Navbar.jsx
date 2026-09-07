@@ -1,3 +1,9 @@
+import {
+  faArrowRight,
+  faBars,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { assets } from "../assets/assets";
 import ThemeToggleBtn from "./ThemeToggleBtn";
@@ -20,6 +26,7 @@ const Navbar = ({ theme, setTheme }) => {
       </a>
 
       <div
+        id="mobile-navigation"
         className={`text-gray-700 dark:text-white sm:text-sm ${
           !sidebarOpen
             ? "max-sm:w-0 max-sm:overflow-hidden"
@@ -32,12 +39,7 @@ const Navbar = ({ theme, setTheme }) => {
           className="absolute right-4 top-4 sm:hidden"
           aria-label="Close navigation menu"
         >
-          <img
-            src={assets.close_icon}
-            alt=""
-            className="w-5"
-            aria-hidden="true"
-          />
+          <FontAwesomeIcon icon={faXmark} className="w-5" />
         </button>
 
         <ul className="flex flex-col gap-5 sm:flex-row sm:items-center">
@@ -90,12 +92,7 @@ const Navbar = ({ theme, setTheme }) => {
           aria-expanded={sidebarOpen}
           aria-controls="mobile-navigation"
         >
-          <img
-            src={theme === "dark" ? assets.menu_icon_dark : assets.menu_icon}
-            alt=""
-            className="w-8"
-            aria-hidden="true"
-          />
+          <FontAwesomeIcon icon={faBars} className="w-6" />
         </button>
 
         <a
@@ -103,7 +100,7 @@ const Navbar = ({ theme, setTheme }) => {
           className="flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-2 text-sm text-white transition-all hover:scale-103 max-sm:hidden"
         >
           Connect
-          <img src={assets.arrow_icon} width={14} alt="" aria-hidden="true" />
+          <FontAwesomeIcon icon={faArrowRight} className="w-3.5" />
         </a>
       </div>
     </nav>
