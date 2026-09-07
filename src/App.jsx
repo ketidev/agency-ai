@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import OurWork from "./components/OurWork";
 import Services from "./components/Services";
+import Teams from "./components/Teams";
 import TrustedBy from "./components/TrustedBy";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
       <TrustedBy />
       <Services />
       <OurWork />
+      <Teams />
     </div>
   );
 };
