@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 import ContactUs from "./components/contact/ContactUs";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
@@ -14,6 +15,7 @@ const App = () => {
 
   return (
     <div className="dark:bg-black relative">
+      <Toaster />
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <TrustedBy />
