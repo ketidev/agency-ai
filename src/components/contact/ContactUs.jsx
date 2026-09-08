@@ -1,5 +1,5 @@
 import Title from "../Title";
-import ContactForm from "./contactForm";
+import ContactForm from "./ContactForm";
 
 const ContactUs = () => {
   return (
