@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 import ContactUs from "./components/contact/ContactUs";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import OurWork from "./components/OurWork";
@@ -23,6 +24,7 @@ const App = () => {
       <OurWork />
       <Teams />
       <ContactUs />
+      <Footer />
     </div>
   );
 };

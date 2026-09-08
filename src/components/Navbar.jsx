@@ -24,27 +24,24 @@ const Navbar = ({ theme, setTheme }) => {
           alt="Company logo"
         />
       </a>
-
       <div
         id="mobile-navigation"
-        className={`text-gray-700 dark:text-white sm:text-sm ${
-          !sidebarOpen
-            ? "max-sm:w-0 max-sm:overflow-hidden"
-            : "max-sm:w-60 max-sm:pl-10"
-        } fixed right-0 top-0 bottom-0 flex gap-5 transition-all max-sm:min-h-screen max-sm:h-full max-sm:flex-col max-sm:bg-primary max-sm:pt-20 sm:static sm:items-center`}
+        className={`fixed right-0 top-0 bottom-0 z-30 flex min-h-screen flex-col gap-5 bg-primary pt-20 text-white transition-all duration-300 lg:static lg:z-auto lg:min-h-0 lg:flex-row lg:items-center lg:bg-transparent lg:pt-0 lg:text-gray-700 lg:dark:text-white ${
+          sidebarOpen ? "w-60 pl-10" : "w-0 overflow-hidden lg:w-auto lg:pl-0"
+        }`}
       >
         <button
           type="button"
           onClick={closeSidebar}
-          className="absolute right-4 top-4 sm:hidden"
+          className="absolute right-4 top-4 lg:hidden"
           aria-label="Close navigation menu"
         >
           <FontAwesomeIcon icon={faXmark} className="w-5" />
         </button>
 
-        <ul className="flex flex-col gap-5 sm:flex-row sm:items-center">
+        <ul className="flex flex-col gap-5 lg:flex-row lg:items-center">
           <li>
-            <a href="#" onClick={closeSidebar} className="sm:hover:border-b">
+            <a href="#" onClick={closeSidebar} className="lg:hover:border-b">
               Home
             </a>
           </li>
@@ -53,7 +50,7 @@ const Navbar = ({ theme, setTheme }) => {
             <a
               href="#services"
               onClick={closeSidebar}
-              className="sm:hover:border-b"
+              className="lg:hover:border-b"
             >
               Services
             </a>
@@ -63,7 +60,7 @@ const Navbar = ({ theme, setTheme }) => {
             <a
               href="#our-work"
               onClick={closeSidebar}
-              className="sm:hover:border-b"
+              className="lg:hover:border-b"
             >
               Our Work
             </a>
@@ -73,33 +70,30 @@ const Navbar = ({ theme, setTheme }) => {
             <a
               href="#contact-us"
               onClick={closeSidebar}
-              className="sm:hover:border-b"
+              className="lg:hover:border-b"
             >
               Contact Us
             </a>
           </li>
         </ul>
       </div>
-
       <div className="flex items-center gap-2 sm:gap-4">
         <ThemeToggleBtn theme={theme} setTheme={setTheme} />
-
         <button
           type="button"
           onClick={() => setSidebarOpen(true)}
-          className="cursor-pointer sm:hidden"
+          className="cursor-pointer lg:hidden"
           aria-label="Open navigation menu"
           aria-expanded={sidebarOpen}
           aria-controls="mobile-navigation"
         >
           <FontAwesomeIcon icon={faBars} className="w-6" />
         </button>
-
         <a
           href="#contact-us"
-          className="flex cursor-pointer items-center gap-2 rounded-full bg-primary px-6 py-2 text-sm text-white transition-all hover:scale-103 max-sm:hidden"
+          className="hidden items-center gap-2 rounded-full bg-primary px-6 py-2 text-sm text-white transition-transform hover:scale-103 lg:flex"
         >
-          Connect
+          <span>Connect</span>
           <FontAwesomeIcon icon={faArrowRight} className="w-3.5" />
         </a>
       </div>
