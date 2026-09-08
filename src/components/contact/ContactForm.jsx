@@ -6,40 +6,41 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import toast from "react-hot-toast";
 
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+const API_URL = import.meta.env.VITE_WEB3FORMS_API_URL;
+
 const ContactForm = () => {
-  const onSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const form = event.target;
+    const form = event.currentTarget;
     const formData = new FormData(form);
 
-    formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
+    formData.append("access_key", ACCESS_KEY);
 
     try {
-      const response = await fetch(import.meta.env.VITE_WEB3FORMS_API_URL, {
+      const response = await fetch(API_URL, {
         method: "POST",
         body: formData,
       });
 
       const data = await response.json();
 
-      console.log(data);
-
-      if (data.success) {
-        toast.success("Thank you for your submission!");
-        form.reset();
-      } else {
-        toast.error(data.message || "Something went wrong.");
+      if (!data.success) {
+        throw new Error(data.message || "Something went wrong.");
       }
+
+      toast.success("Thank you for your submission!");
+      form.reset();
     } catch (error) {
-      console.error(error);
-      toast.error("Something went wrong. Please try again.");
+      console.error("Form submission error:", error);
+      toast.error(error.message || "Something went wrong. Please try again.");
     }
   };
 
   return (
     <form
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
       className="grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5"
     >
       <label htmlFor="name" className="flex flex-col gap-2 text-sm font-medium">
@@ -107,13 +108,14 @@ const ContactForm = () => {
 
       <button
         type="submit"
-        className="flex w-max cursor-pointer gap-2 rounded-full bg-primary px-10 py-3 text-sm text-white transition-all hover:scale-103"
+        className="flex w-max cursor-pointer items-center gap-2 rounded-full bg-primary px-10 py-3 text-sm text-white transition-transform hover:scale-103"
       >
-        Submit
+        <span>Submit</span>
+
         <FontAwesomeIcon
           icon={faArrowRight}
           aria-hidden="true"
-          className="my-auto w-4"
+          className="w-4"
         />
       </button>
     </form>
